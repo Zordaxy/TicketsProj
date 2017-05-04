@@ -1,9 +1,9 @@
-#TicketProj
+# TicketProj
 
 Project with educational goal.
 Started from [Angular2 Webpack Starter](https://github.com/AngularClass/angular-starter)
 
-#From starter:
+# From starter:
 This seed repo serves as an Angular starter for anyone looking to get up and running with Angular and TypeScript fast. Using a [Webpack 2](http://webpack.github.io/) for building our files and assisting with boilerplate. We're also using Protractor for our end-to-end story and Karma for our unit tests.
 * Best practices in file and application organization for Angular.
 * Ready to go build system using Webpack for working with TypeScript.
