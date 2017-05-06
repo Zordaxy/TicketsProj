@@ -9,3 +9,6 @@
 /.project
 */classes/*
 *~
+node_modules/
+dll/
+dist/
