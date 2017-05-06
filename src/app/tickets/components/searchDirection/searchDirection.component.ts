@@ -1,8 +1,9 @@
 import {
-  Component,
-  OnInit,
+  Component, EventEmitter,
+  OnInit, Output,
   ViewEncapsulation
 } from '@angular/core';
+import {HttpService} from '../../../services/http.service';
 
 @Component({
   selector: 'ticket-search-direction',
@@ -11,18 +12,20 @@ import {
 })
 export class SearchDirectionComponent {
   public query: Query;
+  @Output() onFind: EventEmitter<Query> = new EventEmitter<Query>();
 
   constructor() {
     this.query = new Query();
   }
 
   public find() {
-    console.info(this.query);
+    this.onFind.emit(this.query);
   }
 }
 
-class Query {
-  public date: Date;
+export class Query {
+  public date: string;
   public departure: string;
   public target: string;
+  public id: string;
 }

@@ -27,17 +27,20 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
 import { TicketsComponent } from './tickets/tickets.component';
 import { SearchDirectionComponent } from './tickets/components/searchDirection/searchDirection.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import {HttpService} from './services/http.service';
+import {AdminComponent} from './admin/admin.component';
+import {ListComponent} from './tickets/components/list/list.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  HttpService
 ];
 
 type StoreType = {
@@ -56,9 +59,10 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective,
     TicketsComponent,
-    SearchDirectionComponent
+    SearchDirectionComponent,
+    AdminComponent,
+    ListComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -83,9 +87,7 @@ export class AppModule {
       return;
     }
     console.log('HMR store', JSON.stringify(store, null, 2));
-    // set state
     this.appState._state = store.state;
-    // set input values
     if ('restoreInputValues' in store) {
       let restoreInputValues = store.restoreInputValues;
       setTimeout(restoreInputValues);
@@ -98,19 +100,14 @@ export class AppModule {
 
   public hmrOnDestroy(store: StoreType) {
     const cmpLocation = this.appRef.components.map((cmp) => cmp.location.nativeElement);
-    // save state
     const state = this.appState._state;
     store.state = state;
-    // recreate root elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
-    // save input values
     store.restoreInputValues  = createInputTransfer();
-    // remove styles
     removeNgStyles();
   }
 
   public hmrAfterDestroy(store: StoreType) {
-    // display new elements
     store.disposeOldHosts();
     delete store.disposeOldHosts;
   }

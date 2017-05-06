@@ -1,7 +1,8 @@
+<div class="admin">
 <div class="searchDirection panel panel-default">
   <div class="panel-heading">
     <div class="panel-title">
-      Search route
+      Add route into the DB via REST
     </div>
   </div>
   <div class="inputs">
@@ -12,10 +13,17 @@
 
   <br>
   <div class="form-control">
-    Leaving date: <input type="date" [(ngModel)]="query.date">
+    Route date: <input type="date" [(ngModel)]="query.date">
   </div>
   <br>
   <div class="buttons">
-    <button type="button" class="btn btn-primary" (click)="find()">Find</button>
+    <button type="button" class="btn btn-primary" (click)="add()">Add</button>
   </div>
+</div>
+
+<ticket-list [routes]="routes"
+             [admin]="true"
+             (onRemove)="remove($event)"
+             *ngIf="routes.length">
+</ticket-list>
 </div>

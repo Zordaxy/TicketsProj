@@ -17,3 +17,15 @@
   justify-content: flex-end;
 }
 
+.thead-default th {
+  background-color: darkgray;
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+}
+
+.delete {
+  display:grid;
+}

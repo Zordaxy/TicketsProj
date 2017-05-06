@@ -1,3 +1,7 @@
 <div class="tickets">
-    <ticket-search-direction></ticket-search-direction>
+    <ticket-search-direction (onFind)="find($event)">
+    </ticket-search-direction>
+    <ticket-list [routes]="routes"
+                 *ngIf="routes.length">
+    </ticket-list>
 </div>
