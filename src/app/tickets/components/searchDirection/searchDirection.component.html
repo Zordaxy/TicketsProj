@@ -1,0 +1,19 @@
+<div class="searchDirection panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      Search route
+    </div>
+  </div>
+  <div class="row inputs">
+    <input type="text" class="form-control" placeholder="Departure station" [(ngModel)]="query.target">
+
+    <input type="text" class="form-control" placeholder="Target station" [(ngModel)]="query.departure">
+  </div>
+
+  <div class="row">
+    Leaving date: <input type="date" [(ngModel)]="query.date">
+  </div>
+  <div class="row buttons">
+    <button type="button" class="btn btn-primary" (click)="find()">Find</button>
+  </div>
+</div>

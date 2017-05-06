@@ -1,0 +1,20 @@
+.searchDirection {
+  padding-bottom: 65px;
+  background: #eaeef1;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-around;
+
+  input {
+    width: 48%;
+    margin: auto;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+

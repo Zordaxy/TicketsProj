@@ -1,0 +1,29 @@
+<nav>
+  <a [routerLink]=" ['./'] "
+     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+    Index
+  </a>
+  <a [routerLink]=" ['./tickets'] "
+     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+    Tickets
+  </a>
+  <a [routerLink]=" ['./detail'] "
+     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+    detail
+  </a>
+  <a [routerLink]=" ['./barrel'] "
+     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+    barrel
+  </a>
+  <a [routerLink]=" ['./about'] "
+     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+    about
+  </a>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+</footer>

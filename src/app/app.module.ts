@@ -28,6 +28,8 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+import { TicketsComponent } from './tickets/tickets.component';
+import { SearchDirectionComponent } from './tickets/components/searchDirection/searchDirection.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -54,7 +56,9 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    TicketsComponent,
+    SearchDirectionComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
