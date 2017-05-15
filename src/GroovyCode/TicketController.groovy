@@ -44,7 +44,7 @@ class TicketController extends BaseController {
   }
 
   def update(def data) {
-    Route route = db.Where("departure = data.departure", "target = data.target", "date = data.date").First(&roure)
+    Route route = db.Where("departure = data.departure", "target = data.target", "date = data.date").First(& roure)
     if (route == null) {
       sendErrorMessage(messageSource.getMessage('Message.Text.Route.NotFound', null, Locale.default), 404)
       return
@@ -88,7 +88,7 @@ class TicketController extends BaseController {
   }
 
   def delete(def data) {
-    Route route = db.Where("departure = data.departure", "target = data.target", "date = data.date").First(&roure)
+    Route route = db.Where("departure = data.departure", "target = data.target", "date = data.date").First(& roure)
     if (route == null) {
       sendErrorMessage(messageSource.getMessage('Message.Text.route.NotFound', Locale.default), 404)
       return
@@ -129,7 +129,7 @@ class TicketController extends BaseController {
   }
 
   def list(def data) {
-    Route[] routes = db.Where("departure = data.departure", "target = data.target", "date = data.date").Find(&roure)
+    Route[] routes = db.Where("departure = data.departure", "target = data.target", "date = data.date").Find(& roure)
 
     hal {
       if (routesPage) {
@@ -170,3 +170,4 @@ class TicketController extends BaseController {
       total routesPage?.totalCount ?: 0
     }
   }
+}

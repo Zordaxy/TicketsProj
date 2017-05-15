@@ -1,21 +1,21 @@
 <div class="searchDirection panel panel-default">
   <div class="panel-heading">
     <div class="panel-title">
-      Search route
+      Пошук маршруту
     </div>
   </div>
   <div class="inputs">
-    <input type="text" class="form-control" placeholder="Departure station" [(ngModel)]="query.departure">
+    <input type="text" class="form-control" placeholder="Місце відправлення" [(ngModel)]="query.departure">
 
-    <input type="text" class="form-control" placeholder="Target station" [(ngModel)]="query.target">
+    <input type="text" class="form-control" placeholder="Місце призначення" [(ngModel)]="query.target">
   </div>
 
   <br>
   <div class="form-control">
-    Leaving date: <input type="date" [(ngModel)]="query.date">
+    Дата відправлення: <input type="date" [(ngModel)]="query.date">
   </div>
   <br>
   <div class="buttons">
-    <button type="button" class="btn btn-primary" (click)="find()">Find</button>
+    <button type="button" class="btn btn-primary" (click)="find()">Знайти</button>
   </div>
 </div>

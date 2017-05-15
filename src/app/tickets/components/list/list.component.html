@@ -3,10 +3,10 @@
     <thead class="thead-default">
     <tr>
       <th>#</th>
-      <th>Departure city</th>
-      <th>Destination city</th>
-      <th>date</th>
-      <th *ngIf="admin">action</th>
+      <th>місто відправлення</th>
+      <th>місто призначення</th>
+      <th>дата</th>
+      <th *ngIf="admin">дія</th>
     </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
       <td>{{route.target}}</td>
       <td class="date" >{{route.date}}</td>
       <td *ngIf="admin" class="delete">
-        <button class="btn btn-danger" (click)="remove(route)">Delete</button>
+        <button class="btn btn-danger" (click)="remove(route)">Видалити</button>
       </td>
     </tr>
     </tbody>

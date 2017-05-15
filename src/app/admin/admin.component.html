@@ -2,22 +2,22 @@
 <div class="searchDirection panel panel-default">
   <div class="panel-heading">
     <div class="panel-title">
-      Add route into the DB via REST
+      Додайте маршрут в базу даних використовуючи REST
     </div>
   </div>
   <div class="inputs">
-    <input type="text" class="form-control" placeholder="Departure station" [(ngModel)]="query.departure">
+    <input type="text" class="form-control" placeholder="Місце відправлення" [(ngModel)]="query.departure">
 
-    <input type="text" class="form-control" placeholder="Target station" [(ngModel)]="query.target">
+    <input type="text" class="form-control" placeholder="Місце призначення" [(ngModel)]="query.target">
   </div>
 
   <br>
   <div class="form-control">
-    Route date: <input type="date" [(ngModel)]="query.date">
+    Дата відправлення: <input type="date" [(ngModel)]="query.date">
   </div>
   <br>
   <div class="buttons">
-    <button type="button" class="btn btn-primary" (click)="add()">Add</button>
+    <button type="button" class="btn btn-primary" (click)="add()">Додати маршрут</button>
   </div>
 </div>
 
