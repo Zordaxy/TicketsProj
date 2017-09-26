@@ -1,0 +1,14 @@
+.*
+!.gitignore
+!.gitattributes
+*.token
+*.pyc
+*.iml
+*.class
+*.log
+/.project
+*/classes/*
+*~
+node_modules/
+dll/
+dist/
