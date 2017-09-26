@@ -29,3 +29,12 @@ export class Query {
   public target: string;
   public id: string;
 }
+
+export class Route {
+  public price: number;
+  public departureTime: string;
+  public arrivalTime: string;
+  public departure: string;
+  public arrival: string;
+  public id: string;
+}

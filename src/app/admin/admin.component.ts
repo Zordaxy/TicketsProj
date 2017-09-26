@@ -4,7 +4,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../services/http.service';
-import {Query} from '../tickets/components/searchDirection/searchDirection.component';
+import {Query, Route} from '../tickets/components/searchDirection/searchDirection.component';
 
 @Component({
   selector: 'ticket-admin',
@@ -13,7 +13,7 @@ import {Query} from '../tickets/components/searchDirection/searchDirection.compo
 })
 export class AdminComponent implements OnInit {
   public query: Query;
-  private routes = [Query];
+  private routes = [];
 
   constructor(private httpService: HttpService) {
     this.query = new Query();
@@ -27,7 +27,8 @@ export class AdminComponent implements OnInit {
 
   get() {
     this.httpService.getRoutes(new Query())
-      .then(response => this.routes = response);
+      .then(response =>
+        this.routes = response);
   }
 
   remove(route: Query) {

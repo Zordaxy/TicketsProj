@@ -10,8 +10,20 @@ a.active {
 .title {
   text-align: center;
   background: #025aa5;
-  min-height: 75px;
-  height: 75px;
-  font-size: 52px;
+  min-height: 50px;
+  height: 50px;
+  font-size: 30px;
   color: #fff;
+}
+
+.addition {
+  font-size: 12px;
+  text-align: right;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.addition span {
+  padding-right: 5px;
 }

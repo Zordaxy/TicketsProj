@@ -1,11 +1,12 @@
-import {Http, Response, URLSearchParams} from '@angular/http';
+import {Http, Response, RequestOptionsArgs, RequestMethod, URLSearchParams, Headers} from '@angular/http';
 import {Query} from '../tickets/components/searchDirection/searchDirection.component';
 import 'rxjs';
 import {Injectable} from '@angular/core';
 
 @Injectable()
 export class HttpService {
-  url = 'https://restservice-fa1e0.firebaseio.com/routes';
+  //url = 'https://restservice-fa1e0.firebaseio.com/routes';
+  url = 'http://localhost:8150';
 
   constructor(private http: Http) {
   }
@@ -13,12 +14,22 @@ export class HttpService {
   getRoutes(query: Query) {
     let params: URLSearchParams = new URLSearchParams();
     let date = query.date ? query.date.toString() : (Date.now() + 1).toString();
-    console.log(`date: ${date}`);
     params.set('date', date);
     params.set('departure', query.departure);
     params.set('target', query.target);
 
-    return this.http.get(`${this.url}.json`, {search: params})
+    let contentHeaders = new Headers();
+    contentHeaders.append('Accept', 'application/x-www-form-urlencoded');
+    //contentHeaders.append('Content-Type', 'application/json');
+    //contentHeaders.append('X-Requested-With', 'XMLHttpRequest');
+
+    let defOptions: RequestOptionsArgs = {
+      headers: contentHeaders,
+      withCredentials: true,
+      search: params
+    };
+
+    return this.http.get(`${this.url}/route`, defOptions)
       .toPromise()
       .then(response => {
         let json = response.json();
@@ -33,10 +44,10 @@ export class HttpService {
 
   addRoutes(query: Query): Promise<Response> {
     query.date = query.date || new Date().toISOString().slice(0, 10);
-    return this.http.post(`${this.url}.json`, JSON.stringify(query)).toPromise();
+    return this.http.post(`${this.url}/route`, JSON.stringify(query)).toPromise();
   }
 
   removeRoute(route: Query): Promise<Response> {
-    return this.http.delete(`${this.url}/${route.id}.json`).toPromise();
+    return this.http.delete(`${this.url}/route/${route.id}`).toPromise();
   }
 }

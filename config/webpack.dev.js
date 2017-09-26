@@ -180,6 +180,9 @@ module.exports = function (options) {
         },
         dllDir: helpers.root('dll'),
         webpackConfig: webpackMergeDll(commonConfig({env: ENV}), {
+          headers: {
+            "Access-Control-Allow-Origin": "*"
+          },
           devtool: 'cheap-module-source-map',
           plugins: []
         })
@@ -229,6 +232,9 @@ module.exports = function (options) {
      * See: https://webpack.github.io/docs/webpack-dev-server.html
      */
     devServer: {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
       port: METADATA.port,
       host: METADATA.host,
       historyApiFallback: true,

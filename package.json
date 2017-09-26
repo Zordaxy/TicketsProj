@@ -47,7 +47,7 @@
     "protractor:live": "protractor --elementExplorer",
     "rimraf": "rimraf",
     "server:dev:hmr": "npm run server:dev -- --inline --hot",
-    "server:dev": "webpack-dev-server --config config/webpack.dev.js --open --progress --host 0.0.0.0 --port 3000 --profile --watch --content-base src/",
+    "server:dev": "webpack-dev-server --config config/webpack.dev.js --open --progress --host localhost --port 3000 --profile --watch --content-base src/",
     "server:prod": "http-server dist -c-1 --cors",
     "server:prod:ci": "http-server dist -p 2000 -c-1 --cors",
     "server": "npm run server:dev",
