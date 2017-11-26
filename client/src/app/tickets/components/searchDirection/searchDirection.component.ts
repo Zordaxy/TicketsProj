@@ -1,9 +1,8 @@
 import {
   Component, EventEmitter,
-  OnInit, Output,
-  ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../../../services/http.service';
+import {Route, Station} from '../../../models/ticket.model';
 
 @Component({
   selector: 'ticket-search-direction',
@@ -11,30 +10,20 @@ import {HttpService} from '../../../services/http.service';
   styleUrls: ['searchDirection.component.scss']
 })
 export class SearchDirectionComponent {
-  public query: Query;
-  @Output() onFind: EventEmitter<Query> = new EventEmitter<Query>();
+  public route: Route;
+  public stations: Station[];
 
-  constructor() {
-    this.query = new Query();
+  constructor(private httpService: HttpService) {}
+
+  ngOnInit(): void {
+    this.route = new Route(null, null, new Date().toString());
+    this.httpService.getStations()
+      .then(stations => {
+        this.stations = stations;
+      });
   }
 
   public find() {
-    this.onFind.emit(this.query);
+    //this.onFind.emit(this.query);
   }
-}
-
-export class Query {
-  public date: string;
-  public departure: string;
-  public target: string;
-  public id: string;
-}
-
-export class Route {
-  public price: number;
-  public departureTime: string;
-  public arrivalTime: string;
-  public departure: string;
-  public arrival: string;
-  public id: string;
 }

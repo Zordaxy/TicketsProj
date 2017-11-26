@@ -2,7 +2,7 @@ package server
 
 import grails.rest.Resource
 
-//@Resource(uri='/tickets')
+@Resource(formats=['json', 'xml'])
 class Ticket {
 
     static constraints = {

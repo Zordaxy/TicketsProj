@@ -1,7 +1,9 @@
 <div class="tickets">
     <ticket-search-direction (onFind)="find($event)">
     </ticket-search-direction>
-    <ticket-list [routes]="routes"
-                 *ngIf="routes.length">
-    </ticket-list>
+  <ticket-list [routes]="routes"
+               [admin]="true"
+               (onRemove)="get()"
+               *ngIf="routes.length">
+  </ticket-list>
 </div>

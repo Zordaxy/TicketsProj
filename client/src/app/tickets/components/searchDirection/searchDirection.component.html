@@ -5,14 +5,14 @@
     </div>
   </div>
   <div class="inputs">
-    <input type="text" class="form-control" placeholder="Місце відправлення" [(ngModel)]="query.departure">
+    <input type="text" class="form-control" placeholder="Місце відправлення" [(ngModel)]="route.departure">
 
-    <input type="text" class="form-control" placeholder="Місце призначення" [(ngModel)]="query.target">
+    <input type="text" class="form-control" placeholder="Місце призначення" [(ngModel)]="route.arrival">
   </div>
 
   <br>
   <div class="form-control">
-    Дата відправлення: <input type="date" [(ngModel)]="query.date">
+    Дата відправлення: <input type="date" [(ngModel)]="route.departureTime">
   </div>
   <br>
   <div class="buttons">

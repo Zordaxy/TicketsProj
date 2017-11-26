@@ -1,29 +1,13 @@
 <div class="admin">
-<div class="searchDirection panel panel-default">
-  <div class="panel-heading">
-    <div class="panel-title">
-      Додайте маршрут в базу даних використовуючи REST
-    </div>
-  </div>
-  <div class="inputs">
-    <input type="text" class="form-control" placeholder="Місце відправлення" [(ngModel)]="query.departure">
+  <div class="searchDirection panel panel-default">
+    <new-route (onUpdate)="get()">
+    </new-route>
 
-    <input type="text" class="form-control" placeholder="Місце призначення" [(ngModel)]="query.target">
   </div>
 
-  <br>
-  <div class="form-control">
-    Дата відправлення: <input type="date" [(ngModel)]="query.date">
-  </div>
-  <br>
-  <div class="buttons">
-    <button type="button" class="btn btn-primary" (click)="add()">Додати маршрут</button>
-  </div>
-</div>
-
-<ticket-list [routes]="routes"
-             [admin]="true"
-             (onRemove)="remove($event)"
-             *ngIf="routes.length">
-</ticket-list>
+  <ticket-list [routes]="routes"
+               [admin]="true"
+               (onRemove)="get()"
+               *ngIf="routes.length">
+  </ticket-list>
 </div>

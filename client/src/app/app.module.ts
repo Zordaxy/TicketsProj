@@ -33,6 +33,7 @@ import '../styles/headings.css';
 import {HttpService} from './services/http.service';
 import {AdminComponent} from './admin/admin.component';
 import {ListComponent} from './tickets/components/list/list.component';
+import {NewRouteComponent} from './admin/components/newRoute.component';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -56,7 +57,8 @@ type StoreType = {
     TicketsComponent,
     SearchDirectionComponent,
     AdminComponent,
-    ListComponent
+    ListComponent,
+    NewRouteComponent
   ],
   imports: [
     BrowserModule,

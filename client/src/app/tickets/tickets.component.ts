@@ -1,9 +1,7 @@
 import {
   Component,
-  OnInit,
-  ViewEncapsulation
 } from '@angular/core';
-import {Query} from './components/searchDirection/searchDirection.component';
+import {Route} from './components/searchDirection/searchDirection.component';
 import {HttpService} from '../services/http.service';
 
 @Component({
@@ -12,14 +10,31 @@ import {HttpService} from '../services/http.service';
   styleUrls: ['tickets.component.css']
 })
 export class TicketsComponent {
-  private routes = [Query];
+  private routes = [];
+  public route: Route;
 
   constructor(private httpService: HttpService) {
   }
 
-  find(query: Query) {
-    this.httpService.getRoutes(query)
+  find(route: Route) {
+    this.httpService.getRoutes(route)
       .then(response => this.routes = response);
+  }
+
+  get() {
+    this.httpService.getRoutes()
+      .then(routes => {
+        this.routes = routes;
+      });
+  }
+
+  remove(route: Route) {
+    this.httpService.removeRoute(route.id)
+      .then(() => this.get());
+  }
+
+  ngOnInit() {
+    this.get();
   }
 
 }

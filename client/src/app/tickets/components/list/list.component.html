@@ -12,9 +12,9 @@
     <tbody>
     <tr *ngFor="let route of routes; let i = index">
       <td>{{i+1}}</td>
-      <td>Station {{route.departure.id}}</td>
-      <td>Station {{route.arrival.id}}</td>
-      <td class="date" >{{localizeDate(route.departureTime)}}</td>
+      <td>{{route.departure.name}}</td>
+      <td>{{route.arrival.name}}</td>
+      <td class="date" >{{formatDate(route.departureTime)}}</td>
       <td *ngIf="admin" class="delete">
         <button class="btn btn-danger" (click)="remove(route)">Видалити</button>
       </td>

@@ -1,10 +1,9 @@
 import {
   Component, EventEmitter, Input,
   OnInit, Output,
-  ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../../../services/http.service';
-import {Query, Route} from '../searchDirection/searchDirection.component';
+import {Route} from '../../../models/ticket.model';
 
 @Component({
   selector: 'ticket-list',
@@ -16,16 +15,22 @@ import {Query, Route} from '../searchDirection/searchDirection.component';
 export class ListComponent {
   @Input() routes: [Route];
   @Input() admin;
-  @Output() onRemove: EventEmitter<Route> = new EventEmitter<Route>();
+  @Output() onRemove: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {
+  constructor(private httpService: HttpService) {
   }
 
   remove(route: Route) {
-    this.onRemove.emit(route);
+    this.httpService.removeRoute(route.id)
+      .then(() => {
+        this.onRemove.emit();
+      });
   }
 
-  localizeDate(date: string) {
-    return new Date(date).toLocaleTimeString();
+  formatDate(date: string) {
+    let rawDate: Date = new Date(date);
+    rawDate.setSeconds(0, 0);
+
+    return rawDate.toLocaleTimeString();
   }
 }
