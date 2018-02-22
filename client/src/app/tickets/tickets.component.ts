@@ -1,8 +1,8 @@
 import {
   Component,
 } from '@angular/core';
-import {Route} from './components/searchDirection/searchDirection.component';
 import {HttpService} from '../services/http.service';
+import {Route} from '../models/ticket.model';
 
 @Component({
   selector: 'ticket-tickets',

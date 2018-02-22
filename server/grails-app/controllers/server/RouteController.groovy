@@ -31,7 +31,7 @@ class RouteController extends RestfulController<Route> {
         JSONElement body = JSON.parse(request.reader)
 
         def route = new Route()
-        route.departureTime = new Date(body.departureTime.toString())
+        route.departureTime = new Date(body.departureTime.toLong())
         route.departure = Station.get(body.departure.id)
         route.arrival = Station.get(body.arrival.id)
 
@@ -59,9 +59,9 @@ class RouteController extends RestfulController<Route> {
         Route route = Route.get(routeId)
 
         return [id           : route.id,
-                arrivalTime  : route.arrivalTime,
+                arrivalTime  : route.arrivalTime?.getTime(),
                 price        : route.price,
-                departureTime: route.departureTime,
+                departureTime: route.departureTime?.getTime(),
                 arrival      : Station.get(route.arrival.id),
                 departure    : Station.get(route.departure.id)]
     }

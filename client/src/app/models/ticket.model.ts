@@ -14,6 +14,6 @@ export class Route {
 
   constructor(public departure: Station,
               public arrival: Station,
-              public departureTime: string) {
+              public departureTime: number) {
   }
 }

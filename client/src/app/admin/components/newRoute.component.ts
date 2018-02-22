@@ -21,7 +21,7 @@ export class NewRouteComponent {
   }
 
   ngOnInit(): void {
-    this.route = new Route(null, null, new Date().toString());
+    this.route = new Route(null, null, new Date().getTime());
     this.httpService.getStations()
       .then(stations => {
         this.stations = stations;
@@ -29,10 +29,6 @@ export class NewRouteComponent {
   }
 
   public add(form: NgForm) {
-    if(!this.route.departureTime) {
-      this.route.departureTime = new Date().toString();
-    }
-
     this.httpService.addRoute(this.route)
       .then(() => {
         this.onUpdate.emit();
@@ -40,8 +36,24 @@ export class NewRouteComponent {
     form.reset();
   }
 
+  changeTime(event) {
+    this.route.departureTime = new Date(event).getTime()
+  }
+
+  getDepartureTime() {
+    if (!this.route.departureTime) {
+      this.route.departureTime = new Date().getTime();
+    }
+    return this.route.departureTime;
+  }
+
   get diagnostic() { return JSON.stringify(this.route); }
   get departure() {return this.route.departure ? JSON.stringify(this.route.departure) : "empty";}
+
+  stringify(line: string) {
+    console.log(line);
+    return JSON.stringify(line);
+  }
 
 }
 

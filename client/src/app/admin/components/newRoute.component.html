@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col col-md-6 form-group">
-          <label for="departure">Ст відправлення:</label>
+          <label for="departure">Станція відправлення:</label>
           <select class="form-control input-sm" name="departure" id="departure" required
                   [(ngModel)]="route.departure">
             <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
@@ -12,7 +12,7 @@
         </div>
 
         <div class="col col-md-6 form-group">
-          <label for="arrival">Ст прибуття:</label>
+          <label for="arrival">Станція прибуття:</label>
           <select class="form-control input-sm" name="arrival" id="arrival" required
                   [(ngModel)]="route.arrival">
             <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
@@ -26,8 +26,8 @@
           <div class="form-control">
             <label for="date">Дата відправлення:</label>
             <input type="date" id="date" name="date"
-                   [ngModel]="route.departureTime | date"
-                   (ngModelChange)="route.departureTime=$event">
+                   [ngModel]="getDepartureTime() | date:'yyyy-MM-dd'"
+                   (ngModelChange)="changeTime($event)">
           </div>
         </div>
       </div>

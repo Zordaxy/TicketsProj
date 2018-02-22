@@ -16,7 +16,7 @@ export class SearchDirectionComponent {
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
-    this.route = new Route(null, null, new Date().toString());
+    this.route = new Route(null, null, new Date().getTime());
     this.httpService.getStations()
       .then(stations => {
         this.stations = stations;
