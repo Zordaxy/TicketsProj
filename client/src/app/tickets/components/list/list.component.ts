@@ -31,6 +31,6 @@ export class ListComponent {
     let rawDate: Date = new Date(date);
     rawDate.setSeconds(0, 0);
 
-    return rawDate.toLocaleTimeString();
+    return rawDate.toLocaleString();
   }
 }

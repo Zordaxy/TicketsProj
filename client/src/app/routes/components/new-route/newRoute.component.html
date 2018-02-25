@@ -22,13 +22,11 @@
       </div>
 
       <div class="row">
-        <div class="col form-group">
-          <div class="form-control">
-            <label for="date">Дата відправлення:</label>
-            <input type="date" id="date" name="date"
-                   [ngModel]="getDepartureTime() | date:'yyyy-MM-dd'"
-                   (ngModelChange)="changeTime($event)">
-          </div>
+        <div class="col col-md-6 form-group">
+          <label for="date">Дата відправлення:</label>
+          <input class="form-control input-sm"type="datetime-local" id="date" name="date"
+                 [ngModel]="route.departureTime | date:'yyyy-MM-ddThh:mm'" required
+                 (ngModelChange)="changeTime($event)">
         </div>
       </div>
       <br>

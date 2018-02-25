@@ -31,9 +31,11 @@ import { SearchDirectionComponent } from './tickets/components/searchDirection/s
 import '../styles/styles.scss';
 import '../styles/headings.css';
 import {HttpService} from './services/http.service';
-import {AdminComponent} from './admin/admin.component';
+import {AdminComponent} from './routes/admin.component';
 import {ListComponent} from './tickets/components/list/list.component';
-import {NewRouteComponent} from './admin/components/newRoute.component';
+import {NewRouteComponent} from './routes/components/new-route/newRoute.component';
+import {NewStationComponent} from './stations/components/new-station/newStation.component';
+import {RoutesComponent} from './routes/routes.component';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -56,9 +58,10 @@ type StoreType = {
     NoContentComponent,
     TicketsComponent,
     SearchDirectionComponent,
-    AdminComponent,
+    RoutesComponent,
     ListComponent,
-    NewRouteComponent
+    NewRouteComponent,
+    NewStationComponent
   ],
   imports: [
     BrowserModule,

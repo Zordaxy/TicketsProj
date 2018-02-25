@@ -7,11 +7,11 @@ import {HttpService} from '../services/http.service';
 import {Route} from '../models/ticket.model';
 
 @Component({
-  selector: 'ticket-admin',
-  templateUrl: 'admin.component.html',
-  styleUrls: ['admin.component.scss']
+  selector: 'ticket-routes',
+  templateUrl: 'routes.component.html',
+  styleUrls: ['routes.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class RoutesComponent implements OnInit {
   private routes = [];
   public route: Route;
 

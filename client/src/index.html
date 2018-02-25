@@ -8,6 +8,7 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 
   <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+  <link rel="shortcut icon" href="faviconPlane.ico" type="image/x-icon">
 
   <% if (webpackConfig.htmlElements.headTags) { %>
   <!-- Configured Head Tags  -->
@@ -16,8 +17,6 @@
 
   <!-- base url -->
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
-
-
 </head>
 
 <body>
