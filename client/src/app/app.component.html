@@ -1,42 +1,35 @@
-<div class="title">
-  <div class="row">
-    <div class="col-sm-3">
-
-    </div>
-    <div class="col-sm-6">
-      Система бронювання квитків
-    </div>
-    <div class="col-sm-3 addition">
-      <span>Хмельницький національний університет</span>
-    </div>
+<div class="container global-container">
+  <div class="container-fluid title">
+    <h1 class="text-center">Система бронювання авіаквитків</h1>
+    <h6 class="text-right">Магістерський проект</h6>
   </div>
+  <nav>
+    <a [routerLink]=" ['./'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Стартова сторінка
+    </a>
+    <a [routerLink]=" ['./tickets'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Забронювати квитки
+    </a>
+    <a [routerLink]=" ['./routes'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Маршрути
+    </a>
+    <a [routerLink]=" ['./stations'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Станції
+    </a>
+    <a [routerLink]=" ['./about'] "
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Довідка
+    </a>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>
+  </footer>
 </div>
-<nav>
-  <a [routerLink]=" ['./'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Стартова сторінка
-  </a>
-  <a [routerLink]=" ['./tickets'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Забронювати квитки
-  </a>
-  <a [routerLink]=" ['./routes'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Маршрути
-  </a>
-  <a [routerLink]=" ['./stations'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Станції
-  </a>
-  <a [routerLink]=" ['./about'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Довідка
-  </a>
-</nav>
-
-<main>
-  <router-outlet></router-outlet>
-</main>
-
-<footer>
-</footer>

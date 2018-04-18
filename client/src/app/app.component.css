@@ -1,29 +1,21 @@
 html, body{
   height: 100%;
-  font-family: "Times New Roman", Arial, Helvetica, sans-serif
 }
 
 a.active {
   background-color: gray;
+  height: 100%;
+}
+
+.global-container {
+  background: #f9f9f9;
+  height: 100%;
 }
 
 .title {
   text-align: center;
   background: #025aa5;
   min-height: 50px;
-  height: 50px;
-  font-size: 30px;
   color: #fff;
-}
-
-.addition {
-  font-size: 12px;
-  text-align: right;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.addition span {
-  padding-right: 5px;
+  padding: 2px 15px 1px;
 }

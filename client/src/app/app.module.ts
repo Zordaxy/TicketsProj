@@ -29,7 +29,6 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { SearchDirectionComponent } from './tickets/components/searchDirection/searchDirection.component';
 
 import '../styles/styles.scss';
-import '../styles/headings.css';
 import {HttpService} from './services/http.service';
 import {AdminComponent} from './routes/admin.component';
 import {ListComponent} from './tickets/components/list/list.component';
