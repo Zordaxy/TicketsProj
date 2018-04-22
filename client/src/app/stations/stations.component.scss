@@ -24,3 +24,21 @@
     justify-content: flex-end;
   }
 }
+
+thead th {
+  background-color: darkgray;
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+}
+
+.delete {
+  display:grid;
+}
+
+.route-description {
+  display: flex;
+  justify-content: space-between;
+}

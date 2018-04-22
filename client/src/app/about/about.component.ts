@@ -6,8 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'about',
-  styles: [`
-  `],
+  styleUrls: [ './about.component.scss' ],
   template: `
     <blockquote class="blockquote">
       <p>

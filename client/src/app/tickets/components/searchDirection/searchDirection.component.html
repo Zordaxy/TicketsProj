@@ -1,21 +1,38 @@
 <div class="searchDirection panel panel-default">
   <div class="panel-heading">
-    <div class="panel-title">
-      Пошук маршруту
+    <h4 class="panel-title">Пошук маршруту</h4>
+    <div class="inputs">
+      <div class="container">
+        <div class="row">
+          <div class="col col-md-6 form-group">
+            <label for="departure">Станція відправлення:</label>
+            <select class="form-control input-sm" name="departure" id="departure" required
+                    [(ngModel)]="route.departure">
+              <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
+            </select>
+          </div>
+          <div class="col col-md-6 form-group">
+            <label for="departure">Станція призначення:</label>
+            <select class="form-control input-sm" name="arrival" id="arrival" required
+                    [(ngModel)]="route.arrival">
+              <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-md-6 form-group">
+            <label for="date">Дата відправлення:</label>
+            <input class="form-control input-sm" type="datetime-local" id="date" name="date"
+                   [ngModel]="route.departureTime | date:'yyyy-MM-ddThh:mm'" required
+                   (ngModelChange)="changeTime($event)">
+          </div>
+        </div>
+
+        <div class="row buttons">
+          <button type="submit" class="btn btn-success">Шукати</button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="inputs">
-    <input type="text" class="form-control" placeholder="Місце відправлення" [(ngModel)]="route.departure">
-
-    <input type="text" class="form-control" placeholder="Місце призначення" [(ngModel)]="route.arrival">
-  </div>
-
-  <br>
-  <div class="form-control">
-    Дата відправлення: <input type="date" [(ngModel)]="route.departureTime">
-  </div>
-  <br>
-  <div class="buttons">
-    <button type="button" class="btn btn-primary" (click)="find()">Знайти</button>
   </div>
 </div>

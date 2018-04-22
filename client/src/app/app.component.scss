@@ -1,0 +1,39 @@
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$background_color: #f9f9f9;
+$inner_color: #eaeef1;
+
+html, body{
+  height: 100%;
+}
+
+a.active {
+  background-color: gray;
+  height: 100%;
+}
+
+.global-container {
+  background: $background_color;
+  height: 100%;
+  width: 950px;
+}
+
+.title {
+  text-align: center;
+  background: $background_color;
+  min-height: 50px;
+  padding: 2px 15px 1px;
+  align-items: center;
+
+  img {
+    width: 100%;
+  }
+
+}
+
+.nav-tabs {
+  .nav-link.active {
+    background: $inner_color;
+    border-color: #ddd;
+  }
+}

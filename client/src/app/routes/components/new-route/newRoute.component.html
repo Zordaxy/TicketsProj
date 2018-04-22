@@ -17,19 +17,18 @@
                   [(ngModel)]="route.arrival">
             <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
           </select>
-
         </div>
       </div>
 
       <div class="row">
         <div class="col col-md-6 form-group">
           <label for="date">Дата відправлення:</label>
-          <input class="form-control input-sm"type="datetime-local" id="date" name="date"
+          <input class="form-control input-sm" type="datetime-local" id="date" name="date"
                  [ngModel]="route.departureTime | date:'yyyy-MM-ddThh:mm'" required
                  (ngModelChange)="changeTime($event)">
         </div>
       </div>
-      <br>
+
       <div class="row buttons">
         <button type="submit" class="btn btn-success" [disabled]="!newRouteForm.form.valid">Додати маршрут</button>
       </div>

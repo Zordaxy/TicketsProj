@@ -1,7 +1,7 @@
 import {Http, Response, RequestOptionsArgs, RequestMethod, URLSearchParams, Headers} from '@angular/http';
 import 'rxjs';
 import {Injectable} from '@angular/core';
-import {Route} from '../models/ticket.model';
+import {Route, Station} from '../models/ticket.model';
 
 @Injectable()
 export class HttpService {
@@ -26,8 +26,6 @@ export class HttpService {
       withCredentials: true,
       search: params
     };
-
-
 
     return this.http.get(`${this.url}/routes`, defOptions)
       .toPromise()
@@ -60,24 +58,17 @@ export class HttpService {
       });
   }
 
-
-
-
-
   addRoute(route: Route): Promise<Response> {
-    return this.http.post(`${this.url}/routes`, this.stringifyRoute(route)).toPromise();
+    return this.http.post(`${this.url}/routes`, JSON.stringify(route)).toPromise();
   }
-
   removeRoute(id: number): Promise<Response> {
     return this.http.delete(`${this.url}/routes/${id}`).toPromise();
   }
 
-  stringifyRoute(route: Route) {
-    // let encoded = {};
-    // for (let key in route) {
-    //   encoded[key] = JSON.stringify(route[key]);
-    // }
-    // return encoded;
-    return JSON.stringify(route);
+  addStation(station: Station): Promise<Response> {
+    return this.http.post(`${this.url}/stations`, JSON.stringify(station)).toPromise();
+  }
+  removeStation(id: number): Promise<Response> {
+    return this.http.delete(`${this.url}/stations/${id}`).toPromise();
   }
 }

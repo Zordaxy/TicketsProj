@@ -1,37 +1,12 @@
 <div class="container">
-  <h4>Додайте маршрут в базу даних використовуючи REST</h4>
-  <form class="inputs" #newRouteForm="ngForm" name="newRouteForm" (ngSubmit)="add(newRouteForm)">
+  <h4>Додайте станцію в базу даних використовуючи REST</h4>
+  <form class="inputs" #newStationForm="ngForm" name="newStationForm" (ngSubmit)="add(name.value)">
     <div class="container">
-      <div class="row">
-        <div class="col col-md-6 form-group">
-          <label for="departure">Станція відправлення:</label>
-          <select class="form-control input-sm" name="departure" id="departure" required
-                  [(ngModel)]="route.departure">
-            <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
-          </select>
-        </div>
-
-        <div class="col col-md-6 form-group">
-          <label for="arrival">Станція прибуття:</label>
-          <select class="form-control input-sm" name="arrival" id="arrival" required
-                  [(ngModel)]="route.arrival">
-            <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
-          </select>
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col col-md-6 form-group">
-          <label for="date">Дата відправлення:</label>
-          <input class="form-control input-sm"type="datetime-local" id="date" name="date"
-                 [ngModel]="route.departureTime | date:'yyyy-MM-ddThh:mm'" required
-                 (ngModelChange)="changeTime($event)">
-        </div>
-      </div>
-      <br>
-      <div class="row buttons">
-        <button type="submit" class="btn btn-success" [disabled]="!newRouteForm.form.valid">Додати маршрут</button>
+      <div class="row input-block">
+        <label>Ім'я:
+          <input class="form-control input-sm" #name type="text" required>
+        </label>
+        <button type="submit" class="btn btn-success" [disabled]="!newStationForm.form.valid">Додати станцію</button>
       </div>
     </div>
 

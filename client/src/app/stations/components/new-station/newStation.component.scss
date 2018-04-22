@@ -6,13 +6,11 @@
 .inputs {
   display: flex;
   justify-content: space-between;
-
-  input {
-    width: 48%;
-  }
 }
 
-.buttons {
-  display: flex;
-  justify-content: flex-end;
+.input-block {
+
+  button {
+    margin: auto 0 0.5rem 5rem;
+  }
 }

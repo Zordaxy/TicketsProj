@@ -4,8 +4,8 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { TicketsComponent } from './tickets/tickets.component';
 import {AdminComponent} from './routes/admin.component';
-import {NewStationComponent} from './stations/components/new-station/newStation.component';
 import {RoutesComponent} from './routes/routes.component';
+import {StationsComponent} from './stations/stations.component';
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },
@@ -13,6 +13,6 @@ export const ROUTES: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'tickets', component: TicketsComponent},
   { path: 'routes', component: RoutesComponent},
-  { path: 'stations', component: NewStationComponent},
+  { path: 'stations', component:StationsComponent},
   { path: '**',    component: NoContentComponent },
 ];

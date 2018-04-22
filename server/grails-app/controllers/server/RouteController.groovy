@@ -3,6 +3,7 @@ package server
 import grails.converters.JSON
 import grails.rest.RestfulController
 import org.grails.web.json.JSONElement
+import org.grails.web.json.JSONObject
 
 class RouteController extends RestfulController<Route> {
     static responseFormats = ['json', 'xml']
@@ -22,27 +23,17 @@ class RouteController extends RestfulController<Route> {
         routes.each { route ->
             result.add(getRouteMap(route.id))
         }
-
         respond result
     }
 
     def add() {
-        //JSONObject json = request.JSON
-        JSONElement body = JSON.parse(request.reader)
-
+        JSONObject body = request.JSON as JSONObject
         def route = new Route()
         route.departureTime = new Date(body.departureTime.toLong())
         route.departure = Station.get(body.departure.id)
         route.arrival = Station.get(body.arrival.id)
-
-        if(body.arrivalTime) {
-            route.arrivalTime = new Date(body.arrivalTime?.toString())
-
-        }
-
-        if(body.price) {
-            route.price = body.price?.toDouble()
-        }
+        route.arrivalTime = body.arrivalTime ? new Date(body.arrivalTime.toString()) : null
+        route.price = body.price?.toDouble()
         route.save(flush: true)
 
         respond getRouteMap(route.id)

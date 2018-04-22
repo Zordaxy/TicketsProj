@@ -1,8 +1,6 @@
-<div class="admin">
   <div class="searchDirection panel panel-default">
     <new-route (onUpdate)="get()">
     </new-route>
-
   </div>
 
   <ticket-list [routes]="routes"
@@ -10,4 +8,3 @@
                (onRemove)="get()"
                *ngIf="routes.length">
   </ticket-list>
-</div>

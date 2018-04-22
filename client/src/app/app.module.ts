@@ -28,13 +28,13 @@ import { NoContentComponent } from './no-content';
 import { TicketsComponent } from './tickets/tickets.component';
 import { SearchDirectionComponent } from './tickets/components/searchDirection/searchDirection.component';
 
-import '../styles/styles.scss';
 import {HttpService} from './services/http.service';
 import {AdminComponent} from './routes/admin.component';
 import {ListComponent} from './tickets/components/list/list.component';
 import {NewRouteComponent} from './routes/components/new-route/newRoute.component';
 import {NewStationComponent} from './stations/components/new-station/newStation.component';
 import {RoutesComponent} from './routes/routes.component';
+import {StationsComponent} from './stations/stations.component';
 
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -58,6 +58,7 @@ type StoreType = {
     TicketsComponent,
     SearchDirectionComponent,
     RoutesComponent,
+    StationsComponent,
     ListComponent,
     NewRouteComponent,
     NewStationComponent

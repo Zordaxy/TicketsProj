@@ -12,7 +12,6 @@ import {Route, Station} from '../../../models/ticket.model';
   styleUrls: ['newStation.component.scss']
 })
 export class NewStationComponent {
-  public route: Route;
   @Output() onUpdate: EventEmitter<any> = new EventEmitter<any>();
   stations: Station[];
 
@@ -20,23 +19,17 @@ export class NewStationComponent {
   }
 
   ngOnInit(): void {
-    this.route = new Route(null, null, new Date().getTime());
     this.httpService.getStations()
       .then(stations => {
         this.stations = stations;
       });
   }
 
-  public add() {
-    this.httpService.addRoute(this.route)
+  public add(name: string) {
+    this.httpService.addStation(new Station(name))
       .then(() => {
         this.onUpdate.emit();
       });
-    this.route = new Route(null, null, new Date().getTime());
-  }
-
-  changeTime(event) {
-    this.route.departureTime = new Date(event).getTime();
   }
 }
 

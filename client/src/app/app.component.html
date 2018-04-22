@@ -1,30 +1,47 @@
 <div class="container global-container">
-  <div class="container-fluid title">
-    <h1 class="text-center">Система бронювання авіаквитків</h1>
-    <h6 class="text-right">Магістерський проект</h6>
+  <div class="row title">
+    <div class="col-3">
+      <img src="../titlePlane.png">
+    </div>
+    <div class="col-6">
+      <h1 class="text-center">Система бронювання авіаквитків</h1>
+    </div>
+    <div class="col-3">
+      <h6 class="text-right">Магістерський проект</h6>
+    </div>
   </div>
-  <nav>
-    <a [routerLink]=" ['./'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Стартова сторінка
-    </a>
-    <a [routerLink]=" ['./tickets'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Забронювати квитки
-    </a>
-    <a [routerLink]=" ['./routes'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Маршрути
-    </a>
-    <a [routerLink]=" ['./stations'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Станції
-    </a>
-    <a [routerLink]=" ['./about'] "
-       routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      Довідка
-    </a>
-  </nav>
+  <ul class="nav justify-content-center nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]=" ['./'] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Стартова сторінка
+      </a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]=" ['./tickets'] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Забронювати квитки
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]=" ['./routes'] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Маршрути
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]=" ['./stations'] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Станції
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]=" ['./about'] "
+         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Довідка
+      </a>
+    </li>
+  </ul>
 
   <main>
     <router-outlet></router-outlet>

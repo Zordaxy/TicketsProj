@@ -1,0 +1,33 @@
+<div class="searchDirection panel panel-default">
+  <new-station (onUpdate)="get()">
+  </new-station>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Станція</th>
+    <th>Маршрути</th>
+    <th>дія</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let station of stations">
+    <td>{{station.name}}</td>
+    <td>
+      <div *ngFor="let route of station.incomingRoutes" class="route-description">
+        <span>{{route.departure}} - {{route.arrival}}:</span>
+        <span>{{formatDate(route.departureTime)}}</span>
+      </div>
+      <div *ngFor="let route of station.outgoingRoutes" class="route-description">
+        <span>{{route.departure}} - {{route.arrival}}:</span>
+        <span>{{formatDate(route.departureTime)}}</span>
+      </div>
+    </td>
+    <td class="delete">
+      <button class="btn btn-danger" (click)="remove(station)">Видалити</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
