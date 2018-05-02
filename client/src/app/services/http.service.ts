@@ -14,12 +14,13 @@ export class HttpService {
     this.contentHeaders.append('Accept', 'application/x-www-form-urlencoded');
   }
 
-  getRoutes(route: Route = new Route(null, null, null)) {
+  getRoutes(route: Route = null) {
     let params: URLSearchParams = new URLSearchParams();
-    let date = route.departureTime ? route.departureTime.toString() : (Date.now() + 1).toString();
-    // params.set('date', date);
-    // params.set('departure', route.departure);
-    // params.set('target', route.arrival);
+    if(route) {
+      params.set('departure', route.departure ? route.departure.id.toString() : null);
+      params.set('arrival', route.arrival ? route.arrival.id.toString() : null);
+      params.set('departureTime', JSON.stringify(route.departureTime));
+    }
 
     let defOptions: RequestOptionsArgs = {
       headers: this.contentHeaders,
@@ -33,7 +34,9 @@ export class HttpService {
         let json = response.json();
         let routes = [];
         for (let route in json) {
-          routes.push(json[route]);
+          if (json.hasOwnProperty(route)) {
+            routes.push(json[route]);
+          }
         }
         return routes;
       });
@@ -61,6 +64,7 @@ export class HttpService {
   addRoute(route: Route): Promise<Response> {
     return this.http.post(`${this.url}/routes`, JSON.stringify(route)).toPromise();
   }
+
   removeRoute(id: number): Promise<Response> {
     return this.http.delete(`${this.url}/routes/${id}`).toPromise();
   }
@@ -68,6 +72,7 @@ export class HttpService {
   addStation(station: Station): Promise<Response> {
     return this.http.post(`${this.url}/stations`, JSON.stringify(station)).toPromise();
   }
+
   removeStation(id: number): Promise<Response> {
     return this.http.delete(`${this.url}/stations/${id}`).toPromise();
   }

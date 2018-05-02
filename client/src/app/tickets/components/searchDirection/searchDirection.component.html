@@ -8,6 +8,7 @@
             <label for="departure">Станція відправлення:</label>
             <select class="form-control input-sm" name="departure" id="departure" required
                     [(ngModel)]="route.departure">
+              <option [ngValue]="null"></option>
               <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
             </select>
           </div>
@@ -15,6 +16,7 @@
             <label for="departure">Станція призначення:</label>
             <select class="form-control input-sm" name="arrival" id="arrival" required
                     [(ngModel)]="route.arrival">
+              <option [ngValue]="null"></option>
               <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
             </select>
           </div>
@@ -24,13 +26,13 @@
           <div class="col col-md-6 form-group">
             <label for="date">Дата відправлення:</label>
             <input class="form-control input-sm" type="datetime-local" id="date" name="date"
-                   [ngModel]="route.departureTime | date:'yyyy-MM-ddThh:mm'" required
+                   [ngModel]="route.departureTime | date:'yyyy-MM-dd'"
                    (ngModelChange)="changeTime($event)">
           </div>
         </div>
 
         <div class="row buttons">
-          <button type="submit" class="btn btn-success">Шукати</button>
+          <button type="submit" class="btn btn-success" (click)="find()">Шукати</button>
         </div>
       </div>
     </div>

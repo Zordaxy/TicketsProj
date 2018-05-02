@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter,
+  Component, EventEmitter, Output,
 } from '@angular/core';
 import {HttpService} from '../../../services/http.service';
 import {Route, Station} from '../../../models/ticket.model';
@@ -12,11 +12,16 @@ import {Route, Station} from '../../../models/ticket.model';
 export class SearchDirectionComponent {
   public route: Route;
   public stations: Station[];
+  @Output() onFind: EventEmitter<Route> = new EventEmitter<Route>();
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) {
+  }
 
   ngOnInit(): void {
-    this.route = new Route(null, null, new Date().getTime());
+    // let date = new Date();
+    // date.setHours(0, 0, 0, 0);
+    //this.route = new Route(null, null, new Date().getTime());
+    this.route = new Route(null, null, null);
     this.httpService.getStations()
       .then(stations => {
         this.stations = stations;
@@ -24,6 +29,10 @@ export class SearchDirectionComponent {
   }
 
   public find() {
-    //this.onFind.emit(this.query);
+    this.onFind.emit(this.route);
+  }
+
+  changeTime(event) {
+    this.route.departureTime = new Date(event).getTime();
   }
 }

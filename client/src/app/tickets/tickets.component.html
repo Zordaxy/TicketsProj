@@ -4,6 +4,7 @@
   <ticket-list [routes]="routes"
                [admin]="true"
                (onRemove)="get()"
+               (onFind)="find()"
                *ngIf="routes.length">
   </ticket-list>
 </div>

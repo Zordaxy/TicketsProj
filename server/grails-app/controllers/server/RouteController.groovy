@@ -4,6 +4,7 @@ import grails.converters.JSON
 import grails.rest.RestfulController
 import org.grails.web.json.JSONElement
 import org.grails.web.json.JSONObject
+import grails.gorm.DetachedCriteria
 
 class RouteController extends RestfulController<Route> {
     static responseFormats = ['json', 'xml']
@@ -16,8 +17,19 @@ class RouteController extends RestfulController<Route> {
         respond(getRouteMap(routeId))
     }
 
-    def list() {
-        List<Route> routes = Route.list()
+    def list(Long departure, Long arrival, Long departureTime) {
+        DetachedCriteria<Route> query = Route.where {
+            if (departure) {
+                eq 'departure', Station.get(departure)
+            }
+            if (arrival) {
+                eq 'arrival', Station.get(arrival)
+            }
+            if (departureTime) {
+                gt 'departureTime', new Date(departureTime)
+            }
+        }
+        List<Route> routes = query.findAll()
 
         List result = []
         routes.each { route ->
