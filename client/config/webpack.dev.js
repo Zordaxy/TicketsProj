@@ -232,9 +232,9 @@ module.exports = function (options) {
      * See: https://webpack.github.io/docs/webpack-dev-server.html
      */
     devServer: {
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
+      // headers: {
+      //   "Access-Control-Allow-Origin": "*"
+      // },
       port: METADATA.port,
       host: METADATA.host,
       historyApiFallback: true,

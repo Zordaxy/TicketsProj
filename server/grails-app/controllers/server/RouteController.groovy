@@ -1,20 +1,19 @@
 package server
 
-import grails.converters.JSON
 import grails.rest.RestfulController
-import org.grails.web.json.JSONElement
 import org.grails.web.json.JSONObject
 import grails.gorm.DetachedCriteria
 
 class RouteController extends RestfulController<Route> {
-    static responseFormats = ['json', 'xml']
+    static responseFormats = ['json', 'hal']
 
     RouteController() {
         super(Route)
     }
 
     def get(Long routeId) {
-        respond(getRouteMap(routeId))
+        def result = getRouteMap(routeId)
+        render result
     }
 
     def list(Long departure, Long arrival, Long departureTime) {
@@ -30,12 +29,11 @@ class RouteController extends RestfulController<Route> {
             }
         }
         List<Route> routes = query.findAll()
-
         List result = []
         routes.each { route ->
             result.add(getRouteMap(route.id))
         }
-        respond result
+        [list: result]
     }
 
     def add() {
@@ -47,20 +45,17 @@ class RouteController extends RestfulController<Route> {
         route.arrivalTime = body.arrivalTime ? new Date(body.arrivalTime.toString()) : null
         route.price = body.price?.toDouble()
         route.save(flush: true)
-
-        respond getRouteMap(route.id)
+        render getRouteMap(route.id)
     }
 
     def delete(Long routeId) {
         def route = Route.get(routeId)
         route.delete(flush: true)
-
-        respond {}
+        render {}
     }
 
-    Map getRouteMap(Long routeId) {
+    private Map getRouteMap(Long routeId) {
         Route route = Route.get(routeId)
-
         return [id           : route.id,
                 arrivalTime  : route.arrivalTime?.getTime(),
                 price        : route.price,

@@ -18,10 +18,9 @@ export class SearchDirectionComponent {
   }
 
   ngOnInit(): void {
-    // let date = new Date();
-    // date.setHours(0, 0, 0, 0);
-    //this.route = new Route(null, null, new Date().getTime());
-    this.route = new Route(null, null, null);
+    let date = new Date();
+    date.setHours(1, 0, 0, 0);
+    this.route = new Route(null, null, date.getTime());
     this.httpService.getStations()
       .then(stations => {
         this.stations = stations;
@@ -33,6 +32,6 @@ export class SearchDirectionComponent {
   }
 
   changeTime(event) {
-    this.route.departureTime = new Date(event).getTime();
+    this.route.departureTime = new Date(event.currentTarget.valueAsNumber).getTime();
   }
 }

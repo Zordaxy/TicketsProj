@@ -1,0 +1,39 @@
+import server.Station
+
+model {
+    Map route
+}
+
+json {
+    hal.links {
+        self {
+            href "route/show/$route.id"
+            hreflang 'en'
+            type "application/hal+json"
+        }
+        previous {
+            href "route/show/${route.id - 1}"
+            hreflang 'en'
+            type "application/hal+json"
+        }
+        next {
+            href "route/show/${route.id + 1}"
+            hreflang 'en'
+            type "application/hal+json"
+        }
+    }
+    id route.id
+    arrivalTime route.arrivalTime
+    price route.price
+    departureTime route.departureTime
+    arrival {
+        hal.links(route.arrival as Station)
+        id((route.arrival as Station).id)
+        name((route.arrival as Station).name)
+    }
+    departure {
+        hal.links(route.departure as Station)
+        id((route.departure as Station).id)
+        name((route.departure as Station).name)
+    }
+}

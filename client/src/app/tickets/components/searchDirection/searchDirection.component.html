@@ -21,13 +21,12 @@
             </select>
           </div>
         </div>
-
         <div class="row">
           <div class="col col-md-6 form-group">
-            <label for="date">Дата відправлення:</label>
+            <label for="date">Дата відправлення (після):</label>
             <input class="form-control input-sm" type="datetime-local" id="date" name="date"
-                   [ngModel]="route.departureTime | date:'yyyy-MM-dd'"
-                   (ngModelChange)="changeTime($event)">
+                   [value]="route.departureTime | date:'yyyy-MM-ddThh:mm'"
+                   (change)="changeTime($event)">
           </div>
         </div>
 
