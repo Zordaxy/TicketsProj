@@ -24,7 +24,6 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
 import { TicketsComponent } from './tickets/tickets.component';
 import { SearchDirectionComponent } from './tickets/components/searchDirection/searchDirection.component';
 
@@ -54,7 +53,6 @@ type StoreType = {
     AppComponent,
     AboutComponent,
     HomeComponent,
-    NoContentComponent,
     TicketsComponent,
     SearchDirectionComponent,
     RoutesComponent,
