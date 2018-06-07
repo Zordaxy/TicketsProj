@@ -42,7 +42,6 @@ export class HttpService {
       });
   }
 
-
   getStations() {
     let defOptions: RequestOptionsArgs = {
       headers: this.contentHeaders,
